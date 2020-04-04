@@ -31,6 +31,7 @@ int main(void)
     if((fd_mouse = open(MOUSE_PATH, O_RDWR)) == -1)
     {
         printf("Can't open %s!\n", MOUSE_PATH);
+	return 0;
     }
 
     if ((fd_mem = open(MEM_PATH, (O_RDWR | O_SYNC))) == -1) {
