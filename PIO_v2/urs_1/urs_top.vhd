@@ -22,14 +22,14 @@ entity urs_top is
             memory_mem_dm      : out   std_logic_vector(3 downto 0);                     -- mem_dm
             memory_oct_rzqin   : in    std_logic                     := 'X';             -- oct_rzqin
             to_hex_export      : in   std_logic_vector(31 downto 0);                     -- export
-						to_led             : out   std_logic_vector(9 downto 0);  				        -- export
-						hex0 			   : out std_logic_vector(6 downto 0);
-						hex1 			   : out std_logic_vector(6 downto 0);
-						hex2 		     : out std_logic_vector(6 downto 0);
-						hex3 			   : out std_logic_vector(6 downto 0);
-						hex4 			   : out std_logic_vector(6 downto 0);
-						hex5 			   : out std_logic_vector(6 downto 0);
-						hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
+	    to_led             : out   std_logic_vector(9 downto 0);  				        -- export
+	    hex0               : out std_logic_vector(6 downto 0);
+	    hex1               : out std_logic_vector(6 downto 0);
+	    hex2 	       : out std_logic_vector(6 downto 0);
+	    hex3	       : out std_logic_vector(6 downto 0);
+	    hex4   	       : out std_logic_vector(6 downto 0);
+	    hex5               : out std_logic_vector(6 downto 0);
+	    hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
             hps_io_hps_io_emac1_inst_TXD0   : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
             hps_io_hps_io_emac1_inst_TXD1   : out   std_logic;                                        -- hps_io_emac1_inst_TXD1
             hps_io_hps_io_emac1_inst_TXD2   : out   std_logic;                                        -- hps_io_emac1_inst_TXD2
@@ -76,9 +76,11 @@ architecture rtl of urs_top is
             memory_mem_odt     : out   std_logic;                                        -- mem_odt
             memory_mem_dm      : out   std_logic_vector(3 downto 0);                     -- mem_dm
             memory_oct_rzqin   : in    std_logic                     := 'X';             -- oct_rzqin
+		
             to_hex_export      : out    std_logic_vector(31 downto 0) := (others => 'X');
-			to_speed_export                 : out   std_logic_vector(9 downto 0);                      -- export
-			hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
+	    to_speed_export    : out   std_logic_vector(9 downto 0);                      -- export
+		
+	    hps_io_hps_io_emac1_inst_TX_CLK : out   std_logic;                                        -- hps_io_emac1_inst_TX_CLK
             hps_io_hps_io_emac1_inst_TXD0   : out   std_logic;                                        -- hps_io_emac1_inst_TXD0
             hps_io_hps_io_emac1_inst_TXD1   : out   std_logic;                                        -- hps_io_emac1_inst_TXD1
             hps_io_hps_io_emac1_inst_TXD2   : out   std_logic;                                        -- hps_io_emac1_inst_TXD2
@@ -104,28 +106,29 @@ architecture rtl of urs_top is
         );
     end component urs_1;
 
-	 component driver_7seg is
-		port (
-		  in_data				: in std_logic_vector(31 downto 0); -- input from PIO
+    component driver_7seg is
+	port (
+		in_data	: in std_logic_vector(31 downto 0); -- input from PIO
 
-		  hex0 					: out std_logic_vector(6 downto 0);
-		  hex1 					: out std_logic_vector(6 downto 0);
-		  hex2 					: out std_logic_vector(6 downto 0);
-		  hex3 					: out std_logic_vector(6 downto 0);
-		  hex4 					: out std_logic_vector(6 downto 0);
-		  hex5 					: out std_logic_vector(6 downto 0)
+		hex0	: out std_logic_vector(6 downto 0);
+		hex1 	: out std_logic_vector(6 downto 0);
+		hex2 	: out std_logic_vector(6 downto 0);
+		hex3 	: out std_logic_vector(6 downto 0);
+		hex4 	: out std_logic_vector(6 downto 0);
+		hex5 	: out std_logic_vector(6 downto 0)
         );
-	 end component driver_7seg;
+    end component driver_7seg;
 
-	 component led_speed_show is
-		port(
-		 led_speed				: in std_logic_vector(9 downto 0); -- input from PIO
-		 led_out 				: out std_logic_vector(9 downto 0)
-		);
-	 end component led_speed_show;
+    component led_speed_show is
+	port(
+		led_speed				: in std_logic_vector(9 downto 0); -- input from PIO
+		led_out 				: out std_logic_vector(9 downto 0)
+	);
+    end component led_speed_show;
+    
+    signal transfer: std_logic_vector(31 downto 0);
+    signal led_speed: std_logic_vector(9 downto 0);
 
-	 signal transfer: std_logic_vector(31 downto 0);
-	 signal led_speed: std_logic_vector(9 downto 0);
 begin
 	u0 : component urs_1
         port map (
@@ -146,9 +149,11 @@ begin
             memory_mem_odt     => memory_mem_odt,     --       .mem_odt
             memory_mem_dm      => memory_mem_dm,      --       .mem_dm
             memory_oct_rzqin   => memory_oct_rzqin,   --       .oct_rzqin
+		
             to_hex_export      => transfer,       -- to_hex.export
-			to_speed_export    => led_speed,                  -- to_speed.export
-			hps_io_hps_io_emac1_inst_TX_CLK => hps_io_hps_io_emac1_inst_TX_CLK, -- hps_io.hps_io_emac1_inst_TX_CLK
+	    to_speed_export    => led_speed,      -- to_speed.export
+		
+	    hps_io_hps_io_emac1_inst_TX_CLK => hps_io_hps_io_emac1_inst_TX_CLK, -- hps_io.hps_io_emac1_inst_TX_CLK
             hps_io_hps_io_emac1_inst_TXD0   => hps_io_hps_io_emac1_inst_TXD0,   --       .hps_io_emac1_inst_TXD0
             hps_io_hps_io_emac1_inst_TXD1   => hps_io_hps_io_emac1_inst_TXD1,   --       .hps_io_emac1_inst_TXD1
             hps_io_hps_io_emac1_inst_TXD2   => hps_io_hps_io_emac1_inst_TXD2,   --       .hps_io_emac1_inst_TXD2
@@ -174,21 +179,21 @@ begin
         );
 
 
-		  driver_7seg_inst : component driver_7seg
+	  driver_7seg_inst : component driver_7seg
 		  port map (
-				in_data	=> transfer,
-				hex0		=> hex0,
-				hex1		=> hex1,
-				hex2		=> hex2,
-				hex3		=> hex3,
-				hex4		=> hex4,
-				hex5		=> hex5
-			);
+			in_data	=> transfer,
+			hex0		=> hex0,
+			hex1		=> hex1,
+			hex2		=> hex2,
+			hex3		=> hex3,
+			hex4		=> hex4,
+			hex5		=> hex5
+		);
 
-			lss : component led_speed_show
-			port map (
-				led_speed => led_speed,
-				led_out	 => to_led
-			);
+	lss : component led_speed_show
+		port map (
+			led_speed => led_speed,
+			led_out	  => to_led
+		);
 
 end architecture rtl; -- of urs_top
