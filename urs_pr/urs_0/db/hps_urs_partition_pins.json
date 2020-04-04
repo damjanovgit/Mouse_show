@@ -1,0 +1,181 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "to_hex_0_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_0_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_0_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_0_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_0_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_0_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_0_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_1_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_2_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_3_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_4_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "to_hex_5_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,29 @@
+-- our custom component for 7seg control
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity driver_7seg is
+	 port (
+		  clock_clk          : in  std_logic                     := '0';             --  clock.clk
+        reset_reset        : in  std_logic                     := '0'              --  reset.reset
+		
+        avs_s0_address     : in  std_logic_vector(7 downto 0)  := (others => '0'); -- avs_s0.address
+        avs_s0_read        : in  std_logic                     := '0';             --       .read
+        avs_s0_write       : in  std_logic                     := '0';             --       .write
+        avs_s0_writedata   : in  std_logic_vector(31 downto 0) := (others => '0'); --       .writedata
+		  
+		  hex0 					: out std_logic_vector(6 downto 0);
+		  hex1 					: out std_logic_vector(6 downto 0);
+		  hex2 					: out std_logic_vector(6 downto 0);
+		  hex3 					: out std_logic_vector(6 downto 0);
+		  hex4 					: out std_logic_vector(6 downto 0);
+		  hex5 					: out std_logic_vector(6 downto 0);
+    );
+end entity driver_7seg;
+
+architecture rtl of driver_7seg is
+begin
+
+end architecture rtl; -- of driver_7seg
