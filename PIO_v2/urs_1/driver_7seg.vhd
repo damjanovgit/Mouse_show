@@ -6,24 +6,25 @@ use ieee.numeric_std.all;
 
 entity driver_7seg is
 	 port (		  
-		  in_data				: in std_logic_vector(31 downto 0); -- input from PIO
-		  hex0 					: out std_logic_vector(6 downto 0);
-		  hex1 					: out std_logic_vector(6 downto 0);
-		  hex2 					: out std_logic_vector(6 downto 0);
-		  hex3 					: out std_logic_vector(6 downto 0);
-		  hex4 					: out std_logic_vector(6 downto 0);
-		  hex5 					: out std_logic_vector(6 downto 0)
+		  in_data	: in std_logic_vector(31 downto 0); -- input from PIO
+		  hex0 		: out std_logic_vector(6 downto 0);
+		  hex1 		: out std_logic_vector(6 downto 0);
+		  hex2 		: out std_logic_vector(6 downto 0);
+		  hex3 		: out std_logic_vector(6 downto 0);
+		  hex4 		: out std_logic_vector(6 downto 0);
+		  hex5 		: out std_logic_vector(6 downto 0)
     );
 end entity driver_7seg;
 
 architecture rtl of driver_7seg is
 	component bcd_to_7seg is
 		port (
-			bcd : in std_logic_vector(3 downto 0);
+			bcd 	: in std_logic_vector(3 downto 0);
 			seg_out : out std_logic_vector(6 downto 0)
 		);
 	end component;
 	
+-- Double Dabble algorithm
 function to_bcd ( bin : std_logic_vector(7 downto 0) ) return std_logic_vector is
 	variable i : integer:=0;
 	variable bcd : std_logic_vector(7 downto 0) := (others => '0');
