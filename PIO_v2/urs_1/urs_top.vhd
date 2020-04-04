@@ -121,8 +121,8 @@ architecture rtl of urs_top is
 
     component led_speed_show is
 	port(
-		led_speed				: in std_logic_vector(9 downto 0); -- input from PIO
-		led_out 				: out std_logic_vector(9 downto 0)
+		led_speed	: in std_logic_vector(9 downto 0); -- input from PIO
+		led_out 	: out std_logic_vector(9 downto 0)
 	);
     end component led_speed_show;
     
@@ -182,12 +182,12 @@ begin
 	  driver_7seg_inst : component driver_7seg
 		  port map (
 			in_data	=> transfer,
-			hex0		=> hex0,
-			hex1		=> hex1,
-			hex2		=> hex2,
-			hex3		=> hex3,
-			hex4		=> hex4,
-			hex5		=> hex5
+			hex0	=> hex0,
+			hex1	=> hex1,
+			hex2	=> hex2,
+			hex3	=> hex3,
+			hex4	=> hex4,
+			hex5	=> hex5
 		);
 
 	lss : component led_speed_show
