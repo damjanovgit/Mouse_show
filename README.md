@@ -22,3 +22,5 @@ U fajlovima koji se nalaze na ovom repozitorijumu moze da se nadje uradjen, gore
 Radi uspješnog genersianja slike linux OSa zajedno sa VHDL slikom, korištena je PIO (Parallel Input/Output) komponenta. U folderu **urs_pr** se moze vidjeti kako projekat izgleda bez korištenja PIO komponente(napravili smo svoju komponentu sa Avalon interfejsom), ali u tom slucaju generisanje slike je nesto kompleksnije(tačnije, morali bi da modifikujemo *.xml* board info fajlove da bi mogli generisati odgovarajući device tree, a onda napisati i Linux kernel modul - drajver) .
 
 Linux image fajl smo generisali kao u labu 2.
+
+Demonstracija rada projeka se može pogledati na sljedećem YouTube linku:  https://youtu.be/XE0JOLAnBFc 
