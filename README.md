@@ -1,6 +1,6 @@
 # URS - projektni zadatak
 
-Ovo je projektni zadatak rađen za predmet Ugradjeni Računarski Sistemi koji se održava na Elektrotehničkom Faklutetu u Banjoj Luci, godine 2019./2020. 
+Ovo je projektni zadatak rađen za predmet Ugrađeni Računarski Sistemi koji se održava na Elektrotehničkom Faklutetu u Banjoj Luci, godine 2019./2020. 
 Cilj ovog zadataka je uzimanje podataka o položaju kursora miša i stanja tastera (lijevog i desnog) koji se nalaze na mišu, nakon cega je potrebno ispisati poziciju po x i po y osi, te broj pritisaka lijevog i desnog tastera miša na 7-segmentnim displejima koji se nalaze na DE1 SoC ploči.
 Kao dodatak je odrađen i prikaz brzine kretanja misa po X osi na LED-icama.
 
