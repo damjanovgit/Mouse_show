@@ -19,6 +19,9 @@
 #define HW_REGS_SPAN ( 0x04000000 )
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 )
 
+#define UPPER_LIMIT 99
+#define LOWER_LIMIT 0
+
 int main(void)
 {
     int fd_mouse;
@@ -31,6 +34,7 @@ int main(void)
     if((fd_mouse = open(MOUSE_PATH, O_RDWR)) == -1)
     {
         printf("Can't open %s!\n", MOUSE_PATH);
+	return 0;
     }
 
     if ((fd_mem = open(MEM_PATH, (O_RDWR | O_SYNC))) == -1) {
@@ -44,13 +48,16 @@ int main(void)
     if (lw_virtual_base == MAP_FAILED) {
 		printf("mmap() failed\n");
 		close(fd_mem);
-        close(fd_mouse);
-
+        	close(fd_mouse);
 		return 1;
 	}
 
-    display_virtual_addr = lw_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_0_BASE) & (unsigned long)(HW_REGS_MASK));
-    speed_virtual_addr = lw_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_1_BASE) & (unsigned long)(HW_REGS_MASK));
+    display_virtual_addr = lw_virtual_base +
+	    				((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_0_BASE) &
+	    				(unsigned long)(HW_REGS_MASK));
+    speed_virtual_addr = lw_virtual_base + 
+	    				((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_1_BASE) &
+					(unsigned long)(HW_REGS_MASK));
 
     int8_t raw_data[3];
     int num_of_bytes_read;
@@ -85,10 +92,10 @@ int main(void)
             x_pos += raw_data[1];
             y_pos += raw_data[2];
 
-            if(x_pos <= 0) x_pos = 0;
-            if(y_pos <= 0) y_pos = 0;
-            if(x_pos >= 99) x_pos = 99;
-            if(y_pos >= 99) y_pos = 99;
+            if(x_pos <= LOWER_LIMIT) x_pos = LOWER_LIMIT;
+            if(y_pos <= LOWER_LIMIT) y_pos = LOWER_LIMIT;
+            if(x_pos >= UPPER_LIMIT) x_pos = UPPER_LIMIT;
+            if(y_pos >= UPPER_LIMIT) y_pos = UPPER_LIMIT;
 
             p_l_btn = l_btn;
             p_r_btn = r_btn;
