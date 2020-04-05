@@ -49,8 +49,12 @@ int main(void)
 		return 1;
 	}
 
-    display_virtual_addr = lw_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_0_BASE) & (unsigned long)(HW_REGS_MASK));
-    speed_virtual_addr = lw_virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_1_BASE) & (unsigned long)(HW_REGS_MASK));
+    display_virtual_addr = lw_virtual_base +
+	    				((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_0_BASE) &
+	    				(unsigned long)(HW_REGS_MASK));
+    speed_virtual_addr = lw_virtual_base + 
+	    				((unsigned long)(ALT_LWFPGASLVS_OFST + PIO_1_BASE) &
+					(unsigned long)(HW_REGS_MASK));
 
     int8_t raw_data[3];
     int num_of_bytes_read;
