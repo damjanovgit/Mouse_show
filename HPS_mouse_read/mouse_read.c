@@ -45,8 +45,7 @@ int main(void)
     if (lw_virtual_base == MAP_FAILED) {
 		printf("mmap() failed\n");
 		close(fd_mem);
-        close(fd_mouse);
-
+        	close(fd_mouse);
 		return 1;
 	}
 
