@@ -19,6 +19,9 @@
 #define HW_REGS_SPAN ( 0x04000000 )
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 )
 
+#define UPPER_LIMIT 99
+#define LOWER_LIMIT 0
+
 int main(void)
 {
     int fd_mouse;
@@ -89,10 +92,10 @@ int main(void)
             x_pos += raw_data[1];
             y_pos += raw_data[2];
 
-            if(x_pos <= 0) x_pos = 0;
-            if(y_pos <= 0) y_pos = 0;
-            if(x_pos >= 99) x_pos = 99;
-            if(y_pos >= 99) y_pos = 99;
+            if(x_pos <= LOWER_LIMIT) x_pos = LOWER_LIMIT;
+            if(y_pos <= LOWER_LIMIT) y_pos = LOWER_LIMIT;
+            if(x_pos >= UPPER_LIMIT) x_pos = UPPER_LIMIT;
+            if(y_pos >= UPPER_LIMIT) y_pos = UPPER_LIMIT;
 
             p_l_btn = l_btn;
             p_r_btn = r_btn;
