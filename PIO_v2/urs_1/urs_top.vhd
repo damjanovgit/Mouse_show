@@ -217,21 +217,20 @@ begin
         );
 
 
-		  driver_7seg_inst : component driver_7seg
-		  	port map (
-				in_data	=> transfer,
-				hex0	=> hex0,
-				hex1	=> hex1,
-				hex2	=> hex2,
-				hex3	=> hex3,
-				hex4	=> hex4,
-				hex5	=> hex5
-			);
-
-		  lss : component led_speed_show
-			port map (
-				led_speed => led_speed,
-				led_out	 => to_led
-			);
+     driver_7seg_inst : component driver_7seg
+	  	port map (
+			in_data	=> transfer,
+			hex0	=> hex0,
+			hex1	=> hex1,
+			hex2	=> hex2,
+			hex3	=> hex3,
+			hex4	=> hex4,
+			hex5	=> hex5
+		);
+     lss : component led_speed_show
+		port map (
+			led_speed => led_speed,
+			led_out	 => to_led
+		);
 
 end architecture rtl; -- of urs_top
